@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 /* Created by Arjun Gautam */
 @Data
@@ -27,4 +28,10 @@ public class Product {
 
     @Column(name = "create_time", nullable = false)
     private LocalDateTime createdTime;
+
+//    @OneToMany(fetch = FetchType.LAZY,mappedBy = "product")
+//    private Set<Purchase> purchaseList;
+
+
+
 }
