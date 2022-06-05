@@ -6,7 +6,9 @@ import com.codewitharjun.fullstackecommerce.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,5 +30,18 @@ public class UserServiceImpl implements UserService {
 
         return userRepository.save(user);
     }
+
+    @Override
+    public Optional<User> findUserByUserName(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    @Transactional //Transaction is required when executing an update/delete query.
+    public void changeRole(String username,Role newRole) {
+        userRepository.updateUserRole(username, newRole);
+    }
+
+
 
 }
