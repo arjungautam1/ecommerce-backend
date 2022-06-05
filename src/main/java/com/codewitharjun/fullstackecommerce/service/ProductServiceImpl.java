@@ -3,10 +3,11 @@ package com.codewitharjun.fullstackecommerce.service;
 import com.codewitharjun.fullstackecommerce.model.Product;
 import com.codewitharjun.fullstackecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Service
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
