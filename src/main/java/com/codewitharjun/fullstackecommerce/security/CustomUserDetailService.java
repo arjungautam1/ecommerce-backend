@@ -3,6 +3,7 @@ package com.codewitharjun.fullstackecommerce.security;
 import com.codewitharjun.fullstackecommerce.model.User;
 import com.codewitharjun.fullstackecommerce.service.UserService;
 import com.codewitharjun.fullstackecommerce.utils.SecurityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,11 +15,9 @@ import java.util.Set;
 @Service
 public class CustomUserDetailService implements UserDetailsService {
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
-    public CustomUserDetailService(UserService userService) {
-        this.userService = userService;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
